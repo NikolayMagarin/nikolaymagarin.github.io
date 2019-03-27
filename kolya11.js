@@ -1,4 +1,4 @@
-$("#replay").hide();
+$("#replay").hide(); $("#body_").hide(); $("#start").hide();
 let vvdcs = 1, operation, value, a, b, min, max, w, x, y, true_answer_location, J, z, c, d = 3, score = -1;
 let hps = document.getElementById("hp_block_wrapper");
 let body = document.getElementById("body");
@@ -199,8 +199,15 @@ function times() {
 	}, 40) } else {vvdcs = 0; }
 }
 
-setTimeout(function() {
-	$("#ghthtghtgh__BR").hide();
+function start() {
+	$("#body_").show();
+	$("#noth1").hide();
+	$("#start").hide();
 	next_task(0);
 	times();
-},800)
+}
+
+setTimeout(function() {
+	$("#start").show();
+	$("#ghthtghtgh__BR").hide();
+},500)
