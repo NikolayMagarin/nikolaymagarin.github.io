@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Game&?</title>
+	<style>
+        .hp {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNhmf861_yJOYdDYq0ISmYto51k2YBj5ELFDkqRrpR85oZyxba) center center ;
+            background-size: 100% 100%;
+        }
+        #hp_block_wrapper {
+            text-align: left;
+            width: 60%;
+            margin: 20px auto;
+        }
+        .container {
+            margin: 0 auto;
+            text-align: center;
+        }
+        button {
+            height: 50px;
+            width: 100px;
+            margin: 10px;
+        }
+        .replay_button {
+        	height: 200px;
+            width: 400px;
+            border-radius: 20px;
+            background-color: #A9A9A9;
+        }
+        h1 {
+        	color: #008B8B;
+        }
+    </style>
+</head>
+<body>
+	<div id = "ghthtghtgh__BR">
+	<br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><div class = "container ">ЗАГРУЗКА</div><br>
+	<div class = "container "> ( НЕТ) </div><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br>
+    <br>     <br>     <br>     <br>     <br>    <br>
+	</div>
+	<div class = "container" id = "replay">
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<button class = "replay_button" id = "replay_button" onclick = "replay()">
+			<h1>НАЧАТЬ ЗАНОВО</h1>
+		</button>
+	</div>
+	<div id = "body">
+	<canvas id = "myCanvas" width = "1000" height = "1" style = "border:2px solid green;display:block;margin: 0 auto;
+            text-align: center;">
+    </canvas>
+    <div class = "contaner" ><div id = "hp_block_wrapper">
+        <div class = "hp" id = "hp1"></div>
+        <div class = "hp" id = "hp2"></div>
+        <div class = "hp" id = "hp3"></div>
+
+    </div></div>
+    <div class = "container">
+        <h1 id = "task">0 + 0 = ?</h1>
+        <button id = "answer1">0</button>
+        <button id = "answer2">0</button>
+        <button id = "answer3">0</button>
+        <button id = "answer4">0</button>
+    </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+	</script>
+    <script type = "text/javascript" src = "kоlya11.js"></script>
+    <script type = "text/javascript" src = "server.js"></script>
+
+</body>
+</html>
