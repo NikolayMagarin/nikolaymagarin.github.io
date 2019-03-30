@@ -30,8 +30,14 @@ function generate_random_operator() { // ==> String
 function calculate_value(a, b, operator) { // ==> Integer
     // need to find solution for "divide" operator
     switch (operator) {
+        case "+":
+            return a + b;
+        case "-":
+            return a - b;
         case "×":
             return a * b;
+        case ":":
+            return a / b;
         // ...
     }
 }
@@ -55,7 +61,6 @@ function generate_wrong_answers(right_answer) { // ==> [Integer: x, Integer: y, 
 // Generates task object 
 function generate_task() { // ==> Object: { a, b, operator, answer, answers_list }
     var operator = generate_random_operator();
-    var range = get_range_for_operator(operator);
     var a = generate_random_number(range[0], range[1]);
     var b = generate_random_number(range[0], range[1]);
     var answer = calcuate_value(a, b, operator);
@@ -68,4 +73,8 @@ function generate_task() { // ==> Object: { a, b, operator, answer, answers_list
         answer: answer,
         answers_list: answers_list
     };
+}
+
+function (argument) {
+    // body...
 }
