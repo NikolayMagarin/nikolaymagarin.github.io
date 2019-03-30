@@ -1,0 +1,45 @@
+body {
+    background: url(/static/images/titulnik_1.jpg);
+    background-size:100% 142%;
+    font-size: 30pt;
+}
+.hp {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: url(/static/images/heart.png) center center ;
+    background-size: 100% 100%;
+}
+#hp_block_wrapper {
+    text-align: left;
+    width: 60%;
+    margin: 20px auto;
+}
+.container {
+    margin: 0 auto;
+    text-align: center;
+}
+button {
+    height: 100px;
+    width: 200px;
+    margin: 20px;
+    font-size: 40pt;
+    border: 2px double #9ACD32;
+    border-radius: 10px
+}
+.replay_button {
+    height: 100px;
+    width: 100px;
+    border-radius: 20px;
+    margin-top: 250px
+}
+.start_button {
+    margin: 200px;
+}
+h1 {
+    color: #FF4500;
+}
+#task {
+    border: 2px solid #FF7F50;
+    border-radius: 15px;
+}
