@@ -83,10 +83,30 @@ function false_answers() {
 				answer2.innerHTML = x;
 				answer3.innerHTML = y;
 				answer4.innerHTML = z;
-				answer1.onclick = function() {next_task(-1);}
-				answer2.onclick = function() {next_task(-1);}
-				answer3.onclick = function() {next_task(-1);}
-				answer4.onclick = function() {next_task(-1);}
+				answer1.onclick = function() {next_task(-1);
+				answer1.style.background = "red";
+				setTimeout(function() {
+					answer1.style.background = "white";
+				}, 250);	
+				}
+				answer2.onclick = function() {next_task(-1);
+				answer2.style.background = "red";
+				setTimeout(function() {
+					answer2.style.background = "white";
+				}, 250);
+				}
+				answer3.onclick = function() {next_task(-1);
+				answer3.style.background = "red";
+				setTimeout(function() {
+					answer3.style.background = "white";
+				}, 250);
+				}
+				answer4.onclick = function() {next_task(-1);
+				answer4.style.background = "red";
+				setTimeout(function() {
+					answer4.style.background = "white";
+				}, 250);
+				}
 			}
 
 	}
@@ -99,19 +119,43 @@ function true_answer() {
 	switch (true_answer_location) {
 		case 1:
 			answer1.innerHTML = value;
-			answer1.onclick = function() {next_task(0);}
+			answer1.onclick = function() {
+				next_task(0);
+				answer1.style.background = "green";
+				setTimeout(function() {
+					answer1.style.background = "white";
+				}, 250);
+			}
 			break;
 		case 2:
 			answer2.innerHTML = value;
-			answer2.onclick = function() {next_task(0);}
+			answer2.onclick = function() {
+				next_task(0);
+				answer2.style.background = "green";
+				setTimeout(function() {
+					answer2.style.background = "white";
+				}, 250);
+			}
 			break;
 		case 3:
 			answer3.innerHTML = value;
-			answer3.onclick = function() {next_task(0);}
+			answer3.onclick = function() {
+				next_task(0);
+				answer3.style.background = "green";
+				setTimeout(function() {
+					answer3.style.background = "white";
+				}, 250);
+			}
 			break;
 		case 4:
 			answer4.innerHTML = value;
-			answer4.onclick = function() {next_task(0);}
+			answer4.onclick = function() {
+				next_task(0);
+				answer4.style.background = "green";
+				setTimeout(function() {
+					answer4.style.background = "white";
+				}, 250);
+			}
 			break;
 		}
 }
@@ -174,7 +218,8 @@ function next_task(minus_hp) {
 	operation_generation();
 	false_answers();
 	true_answer();
-	new_false_answer()
+	new_false_answer();
+	console.log(value + "        " + score);
 }
 
 function replay() {
