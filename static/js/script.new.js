@@ -26,55 +26,50 @@ function generate_random_operator() { // ==> String
 }
 
 
-// Gets a, b and operator as string and returns the right answer
-function calculate_value(a, b, operator) { // ==> Integer
-    // need to find solution for "divide" operator
+function generate_wrong_answers(right_answer) { // ==> [Integer: x, Integer: y, Integer: z]
+    var answers = [];
+    answers.push(right_answer);
+
+    // ...
+
+    return answers;
+}
+
+function generate_components(operator) {
+    var a, b, answer;
+
     switch (operator) {
         case "+":
-            return a + b;
+            a = generate_random_number(7, 11);
+            b = generate_random_number(7, 11);
+            answer = a + b;
+            break;
         case "-":
-            return a - b;
+            a = generate_random_number(/* ... */);
+            b = generate_random_number(/* ... */);
+            answer = a - b;
+            break;
         case "×":
-            return a * b;
+            // ...
         case ":":
-            return a / b;
-        // ...
+            // ...
     }
-}
 
-
-
-function get_range_for_operator(operator) { // ==> [Integer: min, Integer: max]
-    switch (operator) {
-        case "×":
-            return [2, 11];
-        // ...
-    }
-}
-
-
-function generate_wrong_answers(right_answer) { // ==> [Integer: x, Integer: y, Integer: z]
-
+    return { a: a, b: b, answer: answer };
 }
 
 
 // Generates task object 
 function generate_task() { // ==> Object: { a, b, operator, answer, answers_list }
     var operator = generate_random_operator();
-    var a = generate_random_number(range[0], range[1]);
-    var b = generate_random_number(range[0], range[1]);
-    var answer = calcuate_value(a, b, operator);
-    var answers_list = generate_wrong_answers(answer);
+    var components = generate_components(operator);
+    var answers_list = generate_answers_list(components.answer);
 
     return {
-        a: a,
-        b: b,
+        a: components.a,
+        b: components.b,
         operator: operator,
-        answer: answer,
+        answer: components.answer,
         answers_list: answers_list
     };
-}
-
-function (argument) {
-    // body...
 }
