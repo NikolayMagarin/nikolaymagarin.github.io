@@ -2,54 +2,56 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-	<title>The Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Nickolay Magarin">
+	<title>The Arifmetika Game</title>
+    <link rel="stylesheet" href="/static/css/common.css"/>
     <link rel="stylesheet" href="/static/css/style.css"/>
 </head>
 <body>
-    <!-- <h1>Молодец коля а теперь попробуй сделать выбор: сложение и вычитание,деление и умножение или все вместе? это не трудно я в тебя верю!</h1> -->
-	<div id = "ghthtghtgh__BR">
-	<br><br><br><br><br><br><br><br><br><br><br><br>
-	<br>   <br>   <br>  <br>  <br>  <br>  <br>  <br>
-	<br><div class = "container ">ЗАГРУЗКА</div><br>
-	<div class = "container "> ( НЕТ) </div><br><br>
-    <br>           <br>          <br>           <br>
-	</div>
-    <div id = "start" class = "container">
-        <img class = "start_button" src = "/static/images/start.png" onclick = "start()">
-    </div>
-    <div id = "body_">
-	<div class = "container" id = "replay">
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<img class = "replay_button" id = "replay_button" onclick = "replay()" src = "/static/images/replay.png"><h5 style="color: red">Молодец! Попробуй еще раз.</h5>
-			
-		</img>
-	</div>
-	<div id = "body">
-	<canvas id = "myCanvas" width = "1000" height = "2" style = "border:3px solid blue;display:block;margin: 0 auto;
-            text-align: center; background: #4682B4">
-    </canvas>
-    <div class = "contaner" ><div id = "hp_block_wrapper">
-        <div class = "hp" id = "hp1"></div>
-        <div class = "hp" id = "hp2"></div>
-        <div class = "hp" id = "hp3"></div>
-
-    </div></div>
-    <div class = "container">
-        <h1 id = "task">0 + 0 = ?</h1>
-        <button id = "answer1">0</button>
-        <button id = "answer2">0</button>
-        <button id = "answer3">0</button>
-        <button id = "answer4">0</button>
-    </div>
-    </div>
-    </div>
+    <section class="screen loading-screen">
+        <!-- тут надпись загрузка -->
+    </section>
+    <section class="screen start-screen">
+        <!-- тут правила игры кнопка плей и в будущем авторизация  -->
+    </section>
+    <section class="screen end-game-screen">
+        <!-- тут набранные очки и кнопка играть снова -->
+    </section>
+    <section class="screen main-game-screen show">
+        <!-- основной игровой процесс -->
+        <div class="container">
+            <div class="row">
+                <div class="timer-wrapper">
+                    <div class="timer" id="timer"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="hp-block-wrapper">
+                    <div class="hp" id="hp1"></div>
+                    <div class="hp" id="hp2"></div>
+                    <div class="hp" id="hp3"></div>
+                </div>
+                <div class="score-block-wrapper">
+                    <span id="score">0</span>
+                </div>
+            </div>
+            <div class="row">
+                <h1 class="task" id="task">2 + 2</h1>
+            </div>
+            <div class="row">
+                <div class="answer-buttons-wrapper">
+                    <button class="answer-btn" id="answer1">1</button>
+                    <button class="answer-btn" id="answer2">2</button>
+                    <button class="answer-btn" id="answer3">3</button>
+                    <button class="answer-btn" id="answer4">4</button>
+                </div>
+            </div>
+        </div>
+    </section>
     <script type="text/javascript" src="static/ext/jquery.3.3.1.js"></script>
     <!-- <script type="text/javascript" src="static/ext/jquery.3.3.1.min.js"></script> -->
     <script type="text/javascript" src="static/js/script.js"></script>
-
 </body>
 </html>
