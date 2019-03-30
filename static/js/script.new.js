@@ -13,8 +13,8 @@ var score = 0,
 
 
 // Returns random num x: a <= x <= b
-function generate_random_number(a, b) { // ==> Integer
-    // var x = ...;
+function generate_random_number(a, b) {
+    var x = Math.round(Math.random() * (a - b) + a);
     return x;
 }
 
