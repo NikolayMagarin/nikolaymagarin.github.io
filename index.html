@@ -4,8 +4,9 @@
 	<title>Game&?</title>
 	<style>
         body {
-            background: SlateGrey;
-            background-size: 100% 360%;
+            background: url(титульник.jpg);
+            background-size:100% 142%;
+            font-size: 30pt;
         }
         .hp {
             display: inline-block;
@@ -24,39 +25,42 @@
             text-align: center;
         }
         button {
-            height: 50px;
-            width: 100px;
-            margin: 10px;
+            height: 100px;
+            width: 200px;
+            margin: 20px;
+            font-size: 40pt;
+            border: 2px double #9ACD32;
+            border-radius: 10px
         }
-        .start_replay_buttons {
-        	height: 200px;
-            width: 400px;
+        .replay_button {
+        	height: 100px;
+            width: 100px;
             border-radius: 20px;
-            background-color: #A9A9A9;
+            margin-top: 250px
+        }
+        .start_button {
+            margin: 200px;
         }
         h1 {
-        	color: #4B0082;
+        	color: #FF4500;
+        }
+        #task {
+            border: 2px solid #FF7F50;
+            border-radius: 15px;
         }
     </style>
 </head>
 <body>
+    <!-- <h1>Молодец коля а теперь попробуй сделать выбор: сложение и вычитание,деление и умножение или все вместе? это не трудно я в тебя верю!</h1> -->
 	<div id = "ghthtghtgh__BR">
 	<br><br><br><br><br><br><br><br><br><br><br><br>
 	<br>   <br>   <br>  <br>  <br>  <br>  <br>  <br>
 	<br><div class = "container ">ЗАГРУЗКА</div><br>
 	<div class = "container "> ( НЕТ) </div><br><br>
-    <br><br><br><br>
+    <br>           <br>          <br>           <br>
 	</div>
     <div id = "start" class = "container">
-        <div id = "noth1"><br><br><br><br><br><br><br><br></div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <button onclick = "start()"class = "start_replay_buttons">
-            <h1>НАЧАТЬ</h1>
-        </button>
+        <img class = "start_button" src = "старт.png" onclick = "start()">
     </div>
     <div id = "body_">
 	<div class = "container" id = "replay">
@@ -65,13 +69,13 @@
 		<br>
 		<br>
 		<br>
-		<button class = "start_replay_buttons" id = "replay_button" onclick = "replay()">
-			<h1>НАЧАТЬ ЗАНОВО</h1>
-		</button>
+		<img class = "replay_button" id = "replay_button" onclick = "replay()" src = "replay.png"><h5 style="color: red">Молодец! Попробуй еще раз.</h5>
+			
+		</img>
 	</div>
 	<div id = "body">
-	<canvas id = "myCanvas" width = "1000" height = "1" style = "border:2px solid green;display:block;margin: 0 auto;
-            text-align: center;">
+	<canvas id = "myCanvas" width = "1000" height = "2" style = "border:3px solid blue;display:block;margin: 0 auto;
+            text-align: center; background: #4682B4">
     </canvas>
     <div class = "contaner" ><div id = "hp_block_wrapper">
         <div class = "hp" id = "hp1"></div>

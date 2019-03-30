@@ -2,7 +2,7 @@ $("#replay").hide(); $("#body_").hide(); $("#start").hide();
 let vvdcs = 1, operation, value, a, b, min, max, w, x, y, true_answer_location, J, z, c, d = 3, score = -1;
 let hps = document.getElementById("hp_block_wrapper");
 let body = document.getElementById("body");
-let time_interv, ghgj, time;
+let time_interv, ghgj, time, new_fls_ans_numb, new_fls_ans_val
 
 
 function operation_generation() {
@@ -120,7 +120,7 @@ function true_answer() {
 function next_task(minus_hp) {
 	$("#replay").hide();
 
-	time = 1000;
+	time = 600;
 
 	score = score + minus_hp + 1;
 	d = d + minus_hp;
@@ -164,6 +164,8 @@ function next_task(minus_hp) {
 		 	$("br").remove()
 		 	$("#body").hide();
 		 	$("#replay").show();
+		 	document.body.style.backgroundImage = "url(replay_back.png)";
+		 	document.body.style.backgroundSize = "100% 153%"
 		 },80);
 
 	}
@@ -172,6 +174,7 @@ function next_task(minus_hp) {
 	operation_generation();
 	false_answers();
 	true_answer();
+	new_false_answer()
 }
 
 function replay() {
@@ -183,16 +186,16 @@ function replay() {
 	$("#hp3").show();
 	next_task(0);
 	times();
-
-
+	document.body.style.backgroundImage = "url()"
+	document.body.style.backgroundSize = "100% 135%"
 }
 
 function times() {
 	if (vvdcs != 1) {
-	time = time - 10;
+	time = time - 6;
 	myCanvas.setAttribute('width', time);
 	let ghgj = setTimeout(function() {
-		if (time < 11) {
+		if (time < 7) {
 			next_task(-1);
 			times();
 		} else times();
@@ -203,11 +206,53 @@ function start() {
 	$("#body_").show();
 	$("#noth1").hide();
 	$("#start").hide();
+	document.body.style.background = "#006400";
 	next_task(0);
 	times();
+}
+
+function new_false_answer() {
+	if (value == a - b || value == a + b) {
+		new_fls_ans_numb = Math.round(Math.random() * (3-1) + 1);
+		new_fls_ans_val = Math.round(Math.random() * (2-1) + 1);
+
+		if (new_fls_ans_val == 2) {
+			new_fls_ans_val = 10;
+		} else if (new_fls_ans_val == 1) {
+			new_fls_ans_val = -10;
+		}
+
+		switch (new_fls_ans_numb) {
+			case 1:
+				if (answer1.innerHTML != value) {
+						answer1.innerHTML = value + new_fls_ans_val;
+					} else new_false_answer()
+				break;
+			case 2:
+				if (answer2.innerHTML != value) {
+						answer2.innerHTML = value + new_fls_ans_val;
+					} else new_false_answer()
+
+				break;
+			case 3:
+				if (answer4.innerHTML != value) {
+						answer4.innerHTML = value + new_fls_ans_val;
+					} else new_false_answer()
+				
+				break;
+			case 4:
+				if (answer4.innerHTML != value) {
+						answer4.innerHTML = value + new_fls_ans_val;
+					} else new_false_answer()
+				
+				break;
+		}
+		
+	}
+	
 }
 
 setTimeout(function() {
 	$("#start").show();
 	$("#ghthtghtgh__BR").hide();
-},500)
+},50)
