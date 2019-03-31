@@ -9,6 +9,7 @@
     <meta name="description" content="Тебе предстоит решать примеры на время, чем больше успеешь решить, тем ты круче!">
 	<title>Игра "Арифметика"</title>
     <link rel="stylesheet" href="/static/css/common.css"/>
+    <link rel="stylesheet" href="/static/css/modal.css"/>
     <link rel="stylesheet" href="/static/css/style.css"/>
     <script type="text/javascript" src="https://vk.com/js/api/share.js?93" charset="utf-8"></script>
 </head>
@@ -16,22 +17,33 @@
     <section class="screen loading-screen">
         <!-- тут надпись загрузка -->
     </section>
-    <section class="screen start-screen">
-        <!-- тут правила игры кнопка плей и в будущем авторизация  -->
+    <section class="screen start-screen show">
+        <h1 class="main-title">Арифметика</h1>
         <img src="/static/images/boy.png" alt="" class="boy">
         <div>
-            <button class="start_button" onclick="init_game()"></button>
-            <button class="instruction_button" onclick="show_instruction()">
-                Инструкция
-            </button>
+            <!-- <button class="start_button" onclick="init_game()"></button> -->
+            <div class="buttons-wrapper">
+                <button class="instruction_button" onclick="init_game()">
+                    Играть
+                </button>
+                <button id="instructions-btn" class="instruction_button">
+                    Инструкция
+                </button>
+            </div>
         </div>
-        <section class="screen instruction-window">
-            <p>
-                Примеры решаются на время. На решение одного примера даётся 5 секунд. На начало каждой игры у игрока есть 3 жизни. За каждый правильный ответ игрок получает очки. За каждую ошибку у него снимается одна жизнь.  Когда не останется ни одной жизни, игра прекратится, и на экране появятся набранные очки.
-            </p>
-        </section>
+        <div id="instructions-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Инструкция</h3>
+                <p>Игроку предлагается решить неограниченное количество арифметических примеров с вариантами ответов.</p>
+                <p>Примеры решаются на время. На решение одного примера даётся 5 секунд.</p>
+                <p>На начало каждой игры у игрока есть 3 жизни, за каждую ошибку у него снимается одна жизнь.</p>
+                <p>За каждый правильный ответ игрок получает 10 баллов.</p>
+                <p>Когда не останется ни одной жизни, игра прекратится, и на экране появятся набранные очки.</p>
+            </div>
+        </div>
     </section>
-    <section class="screen end-game-screen show">
+    <section class="screen end-game-screen">
         <!-- тут набранные очки и кнопка играть снова -->
         <h1>Вы набрали <span class="score">0</span> очков!</h1>
         <div class="vk-share-btn-wrapper">
@@ -40,9 +52,16 @@
                 <img src="https://vk.com/images/share_32.png" width="32" height="32" />
             </div> 
         </div>
+        <div class="buttons-wrapper">
+            <button class="instruction_button" onclick="init_game()">
+                Cыграть снова
+            </button>
+            <button class="instruction_button" onclick="back_to_main_menu()">
+                В начало
+            </button>
+        </div>
+        
         <img src="/static/images/boy.png" alt="" class="boy">
-        <img class = "replay_button" src="static/images/replay.png"
-        onclick="init_game()"></img>
     </section>
     <section class="screen main-game-screen">
         <!-- основной игровой процесс -->
@@ -78,5 +97,6 @@
     <script type="text/javascript" src="static/ext/jquery.3.3.1.js"></script>
     <!-- <script type="text/javascript" src="static/ext/jquery.3.3.1.min.js"></script> -->
     <script type="text/javascript" src="static/js/script.new.js"></script>
+    <script type="text/javascript" src="static/js/modal.js"></script>
 </body>
 </html>

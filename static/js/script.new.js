@@ -1,4 +1,3 @@
-var auxiliary = 1 //auxiliary variable to display instructions
 var score = 0,
     hp = 3,
     timer = 5 * 1000, // in milliseconds
@@ -210,18 +209,6 @@ function game_over() {
     $('.end-game-screen').addClass('show');
     $('.end-game-screen .score').text(score);
     generate_vk_share_btn(score);
-}
-
-
-
-function show_instruction() {
-    if (auxiliary == 1) {
-        $('.instruction-window').addClass('show');
-        auxiliary = 0;
-    } else {
-        $('.instruction-window').removeClass('show');
-        auxiliary = 1;
-    }
 }
 
 function back_to_main_menu() {
