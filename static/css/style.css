@@ -20,6 +20,11 @@ body {
     width: 120px;
     border-radius: 10px;
 }
+@media (max-width: 300px) {
+    .screen:after {
+        display: none;
+    }
+}
 
 .screen {
     display: none;
@@ -27,6 +32,13 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    padding: 50px;
+    box-sizing: border-box;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 .screen.show {
@@ -38,6 +50,7 @@ body {
     bottom: 0;
     width: 35%;
     max-width: 350px;
+    pointer-events: none;
 }
 
 @media (max-width: 500px) {
@@ -92,7 +105,7 @@ body {
 }
 
 .end-game-screen {
-    padding-top: 3%;
+
 }
 
 .start-screen h1,
