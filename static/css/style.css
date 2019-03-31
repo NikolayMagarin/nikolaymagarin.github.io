@@ -38,7 +38,7 @@ body {
 }
 
 .start-screen {
-
+   
 }
 
 .hp-block-wrapper,
@@ -133,5 +133,37 @@ body {
     margin-top: 250px
 }
 .start_button {
-    margin: 200px;
+    margin: 0 auto;
+    height: 130px;
+    width: 130px;
+    display: block;
+    margin-top: 100px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid transparent;
+    cursor: pointer;
+    background-image: url(/static/images/start.png);
+}
+
+.start-screen {
+
+}
+
+.instruction-window {
+    text-align: center;
+    color: white;
+    border: 1px double white;
+}
+
+.instruction_button {
+    margin: 0 auto;
+    height: 50px;
+    width: 150px;
+    display: block;
+    border-radius: 20px;
+    border: 2px solid white;
+    color: white;
+    background-color: transparent;
+    font-size: 18pt;
+    cursor: pointer;
 }

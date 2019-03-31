@@ -13,14 +13,24 @@
     <section class="screen loading-screen">
         <!-- тут надпись загрузка -->
     </section>
-    <section class="screen start-screen">
-        <!-- тут правила игры кнопка плей и в будущем авторизация  -->
+    <section class="screen start-screen show">
+        <div>
+            <button class="start_button" onclick="init_game()"></button>
+            <button class="instruction_button" onclick="show_instruction()">
+                Инструкция
+            </button>
+        </div>
+        <section class="screen instruction-window">
+            <p>
+                Примеры решаются на время. На решение одного примера даётся 5 секунд. На начало каждой игры у игрока есть 3 жизни. За каждый правильный ответ игрок получает очки. За каждую ошибку у него снимается одна жизнь. Когда не останется ни одной жизни, игра прекратится, и на экране появятся набранные очки.
+            </p>
+        </section>
     </section>
     <section class="screen end-game-screen">
         <!-- тут набранные очки и кнопка играть снова -->
         <h1>Вы набрали <span class="score"></span> очков!</h1>
     </section>
-    <section class="screen main-game-screen show">
+    <section class="screen main-game-screen">
         <!-- основной игровой процесс -->
         <div class="container">
             <div class="row">
