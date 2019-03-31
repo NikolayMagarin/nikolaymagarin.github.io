@@ -1,4 +1,4 @@
-
+var auxiliary = 1 //auxiliary variable to display instructions
 var score = 0,
     hp = 3,
     timer = 5 * 1000, // in milliseconds
@@ -193,6 +193,9 @@ function start_task() {
 
 
 function init_game() {
+    $('.end-game-screen').removeClass('show');
+    $('.start-screen').removeClass('show');
+    $('.main-game-screen').addClass('show');
     $('.answer-btn').off('click', check_answer).on('click', check_answer);
     hp = 3;
     score = 0;
@@ -211,3 +214,17 @@ function game_over() {
 
 
 
+function show_instruction() {
+    if (auxiliary == 1) {
+        $('.instruction-window').addClass('show');
+        auxiliary = 0;
+    } else {
+        $('.instruction-window').removeClass('show');
+        auxiliary = 1;
+    }
+}
+
+function back_to_main_menu() {
+    $('.end-game-screen').removeClass('show');
+    $('.start-screen').addClass('show');
+}

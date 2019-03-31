@@ -38,7 +38,7 @@ body {
 }
 
 .start-screen {
-
+   
 }
 
 .boy {
@@ -108,6 +108,7 @@ body {
     width: 100%;
     text-align: center;
     color: white;
+    text-align: center;
 }
 
 .main-game-screen {
@@ -147,14 +148,28 @@ body {
 }
 
 .replay_button {
-    height: 100px;
-    width: 100px;
+    height: 120px;
+    width: 120px;
     border-radius: 20px;
-    margin-top: 250px
+    cursor: pointer;
 }
 .start_button {
-    margin: 200px;
+    margin: 0 auto;
+    height: 130px;
+    width: 130px;
+    display: block;
+    margin-top: 100px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid transparent;
+    cursor: pointer;
+    background-image: url(/static/images/start.png);
 }
+
+.start-screen {
+
+}
+
 
 .vk-share-btn-wrapper {
     display: flex;
@@ -166,3 +181,23 @@ body {
     cursor: pointer;
     margin-right: 15px;
 }
+
+.instruction-window {
+    text-align: center;
+    color: white;
+    border: 1px double white;
+}
+
+.instruction_button {
+    margin: 0 auto;
+    height: 50px;
+    width: 150px;
+    display: block;
+    border-radius: 20px;
+    border: 2px solid white;
+    color: white;
+    background-color: transparent;
+    font-size: 18pt;
+    cursor: pointer;
+}
+

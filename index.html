@@ -19,6 +19,17 @@
     <section class="screen start-screen">
         <!-- тут правила игры кнопка плей и в будущем авторизация  -->
         <img src="/static/images/boy.png" alt="" class="boy">
+        <div>
+            <button class="start_button" onclick="init_game()"></button>
+            <button class="instruction_button" onclick="show_instruction()">
+                Инструкция
+            </button>
+        </div>
+        <section class="screen instruction-window">
+            <p>
+                Примеры решаются на время. На решение одного примера даётся 5 секунд. На начало каждой игры у игрока есть 3 жизни. За каждый правильный ответ игрок получает очки. За каждую ошибку у него снимается одна жизнь.  Когда не останется ни одной жизни, игра прекратится, и на экране появятся набранные очки.
+            </p>
+        </section>
     </section>
     <section class="screen end-game-screen show">
         <!-- тут набранные очки и кнопка играть снова -->
@@ -30,8 +41,10 @@
             </div> 
         </div>
         <img src="/static/images/boy.png" alt="" class="boy">
+        <img class = "replay_button" src="static/images/replay.png"
+        onclick="init_game()"></img>
     </section>
-    <section class="screen main-game-screen ">
+    <section class="screen main-game-screen">
         <!-- основной игровой процесс -->
         <div class="container">
             <div class="row">
