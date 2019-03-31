@@ -129,6 +129,13 @@ body {
     background: url(/static/images/heart.png) center center;
     background-size: 100% 100%;
 }
+@media (max-width: 600px) {
+  .hp {
+    width: 30px;
+    height: 25px;
+    margin-right: 8px;
+  }
+}
 
 .answer-btn {
     display: inline-block;
