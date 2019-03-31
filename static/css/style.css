@@ -1,0 +1,219 @@
+body {
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    background: radial-gradient(rgb(16, 116, 80), rgb(11, 78, 47));
+    border: 30px ridge rgb(158, 113, 45);
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+}
+
+.screen:after {
+    content: '';
+    display: block;
+    background-color: white;
+    position: absolute;
+    bottom: 28px;
+    right: 48px;
+    height: 15px;
+    width: 120px;
+    border-radius: 10px;
+}
+
+.screen {
+    display: none;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.screen.show {
+    display: block!important;
+}
+
+.boy {
+    position: absolute;
+    bottom: 0;
+    width: 35%;
+    max-width: 350px;
+}
+
+@media (max-width: 500px) {
+    .boy {
+        display: none;
+    }
+}
+
+.hp-block-wrapper,
+.score-block-wrapper {
+    display: inline-block;
+    width: 70%;
+    min-height: 56px;
+    display: flex;
+    align-items: center;
+}
+.score-block-wrapper {
+    width: 30%;
+    text-align: right;
+    color: white;
+    font-size: 1.9rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.task {
+    margin: 20px auto;
+    color: white;
+    font-size: 1.8rem;
+    font-weight: normal;
+}
+
+.answer-buttons-wrapper {
+    margin: 0 auto;
+    text-align: center;
+    max-width: 500px;
+}
+
+.timer-wrapper {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.timer {
+    width: 100%;
+    height: 8px;
+    margin: 0 auto;
+    background-image: url(/static/images/mel.png);
+    background-position: center;
+}
+
+.end-game-screen {
+    padding-top: 3%;
+}
+
+.start-screen h1,
+.end-game-screen h1 {
+    width: 100%;
+    text-align: center;
+    color: white;
+    text-align: center;
+}
+
+.main-game-screen {
+
+}
+
+
+.hp {
+    display: inline-block;
+    width: 60px;
+    height: 50px;
+    margin-right: 15px;
+    background: url(/static/images/heart.png) center center;
+    background-size: 100% 100%;
+}
+
+.answer-btn {
+    display: inline-block;
+    background-color: transparent;
+    height: 100px;
+    width: 200px;
+    margin: 20px;
+    font-size: 40pt;
+    border: 3px solid white;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .answer-btn {
+    height: 70px;
+    width: 140px;
+    margin: 10px;
+    font-size: 30pt;
+  }
+}
+
+.replay_button {
+    margin: 0 auto;
+    display: block;
+    height: 120px;
+    width: 120px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.start_button {
+    margin: 0 auto;
+    height: 130px;
+    width: 130px;
+    display: block;
+    margin-top: 30px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid transparent;
+    cursor: pointer;
+    background-image: url(/static/images/start.png);
+}
+
+.start-screen .main-title {
+    font-size: 2.5rem;
+    letter-spacing: 5px;
+    margin-top: 1.66em;
+    margin-bottom: 0;
+}
+.buttons-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.buttons-wrapper button {
+    margin: 10px;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+@media (max-width: 500px) {
+    .buttons-wrapper {
+        flex-direction: column;
+        margin-top: 20px;
+    }
+    .buttons-wrapper button {
+        display: block;
+        margin-top: 10px;
+    }
+}
+
+.vk-share-btn-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+.vk-share-btn-wrapper label {
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.instruction-window {
+    text-align: center;
+    color: white;
+    border: 1px double white;
+}
+
+.instruction_button {
+    margin: 10px auto;
+    padding: 10px 15px;
+    display: block;
+    border-radius: 5px;
+    border: 2px solid white;
+    color: white;
+    background-color: transparent;
+    font-size: 18pt;
+    cursor: pointer;
+}
+

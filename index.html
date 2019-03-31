@@ -1,100 +1,102 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Game&?</title>
-	<style>
-        body {
-            background: url(титульник_1.jpg);
-            background-size:100% 142%;
-            font-size: 30pt;
-        }
-        .hp {
-            display: inline-block;
-            width: 30px;
-            height: 30px;
-            background: url(http://zabavnik.club/wp-content/uploads/heart_picture_on_transparent_background_19_04102014.png) center center ;
-            background-size: 100% 100%;
-        }
-        #hp_block_wrapper {
-            text-align: left;
-            width: 60%;
-            margin: 20px auto;
-        }
-        .container {
-            margin: 0 auto;
-            text-align: center;
-        }
-        button {
-            height: 100px;
-            width: 200px;
-            margin: 20px;
-            font-size: 40pt;
-            border: 2px double #9ACD32;
-            border-radius: 10px
-        }
-        .replay_button {
-        	height: 100px;
-            width: 100px;
-            border-radius: 20px;
-            margin-top: 250px
-        }
-        .start_button {
-            margin: 200px;
-        }
-        h1 {
-        	color: #FF4500;
-        }
-        #task {
-            border: 2px solid #FF7F50;
-            border-radius: 15px;
-        }
-    </style>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta property="og:title" content='Игра "Арифметика"' />
+    <meta property="og:image" content="https://nikolaymagarin.github.io/static/images/boy-og.jpg"/>
+    <meta name="author" content="Николай Магарин">
+    <meta name="description" content="Тебе предстоит решать примеры на время, чем больше успеешь решить, тем ты круче!">
+	<title>Игра "Арифметика"</title>
+    <link rel="stylesheet" href="/static/css/common.css"/>
+    <link rel="stylesheet" href="/static/css/modal.css"/>
+    <link rel="stylesheet" href="/static/css/style.css"/>
+    <script type="text/javascript" src="https://vk.com/js/api/share.js?93" charset="utf-8"></script>
 </head>
 <body>
-    <!-- <h1>Молодец коля а теперь попробуй сделать выбор: сложение и вычитание,деление и умножение или все вместе? это не трудно я в тебя верю!</h1> -->
-	<div id = "ghthtghtgh__BR">
-	<br><br><br><br><br><br><br><br><br><br><br><br>
-	<br>   <br>   <br>  <br>  <br>  <br>  <br>  <br>
-	<br><div class = "container ">ЗАГРУЗКА</div><br>
-	<div class = "container "> ( НЕТ) </div><br><br>
-    <br>           <br>          <br>           <br>
-	</div>
-    <div id = "start" class = "container">
-        <img class = "start_button" src = "старт.png" onclick = "start()">
-    </div>
-    <div id = "body_">
-	<div class = "container" id = "replay">
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<img class = "replay_button" id = "replay_button" onclick = "replay()" src = "replay.png"><h5 style="color: red">Молодец! Попробуй еще раз.</h5>
-			
-		</img>
-	</div>
-	<div id = "body">
-	<canvas id = "myCanvas" width = "1000" height = "2" style = "border:3px solid blue;display:block;margin: 0 auto;
-            text-align: center; background: #4682B4">
-    </canvas>
-    <div class = "contaner" ><div id = "hp_block_wrapper">
-        <div class = "hp" id = "hp1"></div>
-        <div class = "hp" id = "hp2"></div>
-        <div class = "hp" id = "hp3"></div>
-
-    </div></div>
-    <div class = "container">
-        <h1 id = "task">0 + 0 = ?</h1>
-        <button id = "answer1">0</button>
-        <button id = "answer2">0</button>
-        <button id = "answer3">0</button>
-        <button id = "answer4">0</button>
-    </div>
-    </div>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-	</script>
-    <script type = "text/javascript" src = "kolya11.js"></script>
-
+    <section class="screen loading-screen">
+        <!-- тут надпись загрузка -->
+    </section>
+    <section class="screen start-screen show">
+        <h1 class="main-title">Арифметика</h1>
+        <img src="/static/images/boy.png" alt="" class="boy">
+        <div>
+            <!-- <button class="start_button" onclick="init_game()"></button> -->
+            <div class="buttons-wrapper">
+                <button class="instruction_button" onclick="init_game()">
+                    Играть
+                </button>
+                <button id="instructions-btn" class="instruction_button">
+                    Инструкция
+                </button>
+            </div>
+        </div>
+        <div id="instructions-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Инструкция</h3>
+                <p>Игроку предлагается решить неограниченное количество арифметических примеров с вариантами ответов.</p>
+                <p>Примеры решаются на время. На решение одного примера даётся 5 секунд.</p>
+                <p>На начало каждой игры у игрока есть 3 жизни, за каждую ошибку у него снимается одна жизнь.</p>
+                <p>За каждый правильный ответ игрок получает 10 баллов.</p>
+                <p>Когда не останется ни одной жизни, игра прекратится, и на экране появятся набранные очки.</p>
+            </div>
+        </div>
+    </section>
+    <section class="screen end-game-screen">
+        <!-- тут набранные очки и кнопка играть снова -->
+        <h1>Вы набрали <span class="score">0</span> очков!</h1>
+        <div class="vk-share-btn-wrapper">
+            <label onclick="$('#vk_share_btn a').click()">Поделиться с друзьями:</label>
+            <div class="vk_share_btn" id="vk_share_btn">
+                <img src="https://vk.com/images/share_32.png" width="32" height="32" />
+            </div> 
+        </div>
+        <div class="buttons-wrapper">
+            <button class="instruction_button" onclick="init_game()">
+                Cыграть снова
+            </button>
+            <button class="instruction_button" onclick="back_to_main_menu()">
+                В начало
+            </button>
+        </div>
+        
+        <img src="/static/images/boy.png" alt="" class="boy">
+    </section>
+    <section class="screen main-game-screen">
+        <!-- основной игровой процесс -->
+        <div class="container">
+            <div class="row">
+                <div class="timer-wrapper">
+                    <div class="timer" id="timer"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="hp-block-wrapper">
+                    <div class="hp"></div>
+                    <div class="hp"></div>
+                    <div class="hp"></div>
+                </div>
+                <div class="score-block-wrapper">
+                    <span id="score">0</span>
+                </div>
+            </div>
+            <div class="row">
+                <h1 class="task" id="task">2 + 2</h1>
+            </div>
+            <div class="row">
+                <div class="answer-buttons-wrapper">
+                    <button class="answer-btn" id="answer1">1</button>
+                    <button class="answer-btn" id="answer2">2</button>
+                    <button class="answer-btn" id="answer3">3</button>
+                    <button class="answer-btn" id="answer4">4</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript" src="static/ext/jquery.3.3.1.js"></script>
+    <!-- <script type="text/javascript" src="static/ext/jquery.3.3.1.min.js"></script> -->
+    <script type="text/javascript" src="static/js/script.new.js"></script>
+    <script type="text/javascript" src="static/js/modal.js"></script>
 </body>
 </html>
