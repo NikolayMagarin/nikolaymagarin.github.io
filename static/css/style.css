@@ -13,22 +13,22 @@ body {
     content: '';
     display: block;
     background-color: white;
-    position: absolute;
+    position: fixed;
     bottom: 28px;
     right: 48px;
     height: 15px;
     width: 120px;
     border-radius: 10px;
 }
-@media (max-width: 300px) {
+@media (max-width: 600px) {
     .screen:after {
+        content: '';
         display: none;
     }
 }
 
 .screen {
     display: none;
-    height: 100%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -179,6 +179,14 @@ body {
     margin-top: 1.66em;
     margin-bottom: 0;
 }
+
+@media (max-width: 400px) {
+    .start-screen .main-title {
+        font-size: 2rem;
+        letter-spacing: 3px;
+    }
+}
+
 .buttons-wrapper {
     display: flex;
     justify-content: center;
