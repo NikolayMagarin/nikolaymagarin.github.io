@@ -171,6 +171,7 @@ function start_task() {
 
 
 function init_game() {
+    $('.end-game-screen').removeClass('show');
     $('.start-screen').removeClass('show');
     $('.main-game-screen').addClass('show');
     $('.answer-btn').off('click', check_answer).on('click', check_answer);
@@ -202,10 +203,13 @@ function show_instruction() {
     if (auxiliary == 1) {
         $('.instruction-window').addClass('show');
         auxiliary = 0;
-        console.log(auxiliary);
     } else {
         $('.instruction-window').removeClass('show');
         auxiliary = 1;
-        console.log(auxiliary);
     }
+}
+
+function back_to_main_menu() {
+    $('.end-game-screen').removeClass('show');
+    $('.start-screen').addClass('show');
 }
