@@ -81,8 +81,9 @@ body {
 .timer {
     width: 100%;
     height: 8px;
+    margin: 0 auto;
     background-image: url(/static/images/mel.png);
-    background-size: contain;
+    background-position: center;
 }
 
 .end-game-screen {
