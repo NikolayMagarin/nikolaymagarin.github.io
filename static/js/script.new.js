@@ -15,7 +15,7 @@ var score = 0,
 
 // Returns random num x: a <= x <= b
 function generate_random_number(a, b) {
-    var x = Math.round(Math.random() * (a - b) + a);
+    var x = Math.round(Math.random() * (b - a) + a);
     return x;
 }
 
@@ -29,10 +29,19 @@ function generate_random_operator() { // ==> String
 
 function generate_answers_list(right_answer) { // ==> [Integer: x, Integer: y, Integer: z]
     var answers = [];
-    answers.push(right_answer);
-
-    // ...
-
+    var min_v = right_answer - 3;
+    var max_v = right_answer + 3;
+    while (answers.length < 4) {
+        let wrong_answer = generate_random_number(min_v, max_v);
+        if (answers.indexOf(wrong_answer) === -1) {
+            arr.push(wrong_answer);
+        }
+    }
+        if (answers.indexOf(right_answer) !== -1) {
+            return answers;
+        } else {
+            return generate_answers_list(right_answer);
+        }
     return answers;
 }
 
@@ -41,19 +50,29 @@ function generate_components(operator) {
 
     switch (operator) {
         case "+":
-            a = generate_random_number(7, 11);
-            b = generate_random_number(7, 11);
+            a = generate_random_number(1, 50);
+            b = generate_random_number(1, 50);
             answer = a + b;
             break;
         case "-":
-            a = generate_random_number(/* ... */);
-            b = generate_random_number(/* ... */);
+            a = generate_random_number(2, 90);
+            if (a > 10) {
+                b = generate_random_number(2, a-5);
+            } else {
+                b = generate_random_number(2, a);
+            }
             answer = a - b;
             break;
         case "×":
-            // ...
+            a = generate_random_number(2, 10);
+            b = generate_random_number(2, 10);
+            answer = a * b;
         case ":":
-            // ...
+            var res = generate_divide_components();
+            a = res[0];
+            b = res[1];
+            answer = res[2];
+            break;
     }
 
     return { a: a, b: b, answer: answer };
@@ -167,4 +186,12 @@ function game_over() {
 }
 
 
+function generate_divide_components() {
+    a = generate_random_number(8, 100);
+    b = generate_random_number(4, 10);
+    while (Math.round(a / b) !== a / b) {
+        a++;
+    }
+    return [a, b, a/b]
+}
 
