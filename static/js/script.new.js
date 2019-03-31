@@ -34,7 +34,7 @@ function generate_answers_list(right_answer) { // ==> [Integer: x, Integer: y, I
     while (answers.length < 4) {
         let wrong_answer = generate_random_number(min_v, max_v);
         if (answers.indexOf(wrong_answer) === -1) {
-            arr.push(wrong_answer);
+            answers.push(wrong_answer);
         }
     }
         if (answers.indexOf(right_answer) !== -1) {
@@ -67,6 +67,7 @@ function generate_components(operator) {
             a = generate_random_number(2, 10);
             b = generate_random_number(2, 10);
             answer = a * b;
+            break;
         case ":":
             var res = generate_divide_components();
             a = res[0];
