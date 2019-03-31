@@ -31,18 +31,19 @@ function generate_answers_list(right_answer) { // ==> [Integer: x, Integer: y, I
     var answers = [];
     var min_v = right_answer - 3;
     var max_v = right_answer + 3;
+    
     while (answers.length < 4) {
         let wrong_answer = generate_random_number(min_v, max_v);
         if (answers.indexOf(wrong_answer) === -1) {
             answers.push(wrong_answer);
         }
     }
-        if (answers.indexOf(right_answer) !== -1) {
-            return answers;
-        } else {
-            return generate_answers_list(right_answer);
-        }
-    return answers;
+    
+    if (answers.indexOf(right_answer) !== -1) {
+        return answers;
+    } else {
+        return generate_answers_list(right_answer);
+    }
 }
 
 function generate_components(operator) {
@@ -78,6 +79,16 @@ function generate_components(operator) {
 
     return { a: a, b: b, answer: answer };
 }
+
+function generate_divide_components() {
+    a = generate_random_number(8, 100);
+    b = generate_random_number(4, 10);
+    while (Math.round(a / b) !== a / b) {
+        a++;
+    }
+    return [a, b, a/b]
+}
+
 
 
 // Generates task object 
@@ -141,6 +152,17 @@ function show_timer(current_time) {
     $('#timer').width(current_width);
 }
 
+function generate_vk_share_btn(score) {
+    var share_options = {
+        title: "Я набрал " + score + " очков в игре \"Арифметика\"! А сколько наберешь ты?"
+    };
+    var button_options = {
+        type: "custom", 
+        text: "<img src=\"https://vk.com/images/share_32.png\" width=\"32\" height=\"32\" />",
+    }
+    $('#vk_share_btn').html(VK.Share.button(share_options, button_options));
+}
+
 /*******************/
 
 
@@ -184,15 +206,8 @@ function game_over() {
     $('.main-game-screen').removeClass('show');
     $('.end-game-screen').addClass('show');
     $('.end-game-screen .score').text(score);
+    generate_vk_share_btn(score);
 }
 
 
-function generate_divide_components() {
-    a = generate_random_number(8, 100);
-    b = generate_random_number(4, 10);
-    while (Math.round(a / b) !== a / b) {
-        a++;
-    }
-    return [a, b, a/b]
-}
 

@@ -2,12 +2,15 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Nickolay Magarin">
-	<title>The Arifmetika Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta property="og:title" content='Игра "Арифметика"' />
+    <meta property="og:image" content="https://nikolaymagarin.github.io/static/images/boy-og.jpg"/>
+    <meta name="author" content="Николай Магарин">
+    <meta name="description" content="Тебе предстоит решать примеры на время, чем больше успеешь решить, тем ты круче!">
+	<title>Игра "Арифметика"</title>
     <link rel="stylesheet" href="/static/css/common.css"/>
     <link rel="stylesheet" href="/static/css/style.css"/>
+    <script type="text/javascript" src="https://vk.com/js/api/share.js?93" charset="utf-8"></script>
 </head>
 <body>
     <section class="screen loading-screen">
@@ -15,12 +18,20 @@
     </section>
     <section class="screen start-screen">
         <!-- тут правила игры кнопка плей и в будущем авторизация  -->
+        <img src="/static/images/boy.png" alt="" class="boy">
     </section>
-    <section class="screen end-game-screen">
+    <section class="screen end-game-screen show">
         <!-- тут набранные очки и кнопка играть снова -->
-        <h1>Вы набрали <span class="score"></span> очков!</h1>
+        <h1>Вы набрали <span class="score">0</span> очков!</h1>
+        <div class="vk-share-btn-wrapper">
+            <label onclick="$('#vk_share_btn a').click()">Поделиться с друзьями:</label>
+            <div class="vk_share_btn" id="vk_share_btn">
+                <img src="https://vk.com/images/share_32.png" width="32" height="32" />
+            </div> 
+        </div>
+        <img src="/static/images/boy.png" alt="" class="boy">
     </section>
-    <section class="screen main-game-screen show">
+    <section class="screen main-game-screen ">
         <!-- основной игровой процесс -->
         <div class="container">
             <div class="row">
