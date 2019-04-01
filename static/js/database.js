@@ -19,3 +19,24 @@ function add_game_into_db(name, vkid, score, avatar) {
       console.error("Error adding document: ", error);
   });
 }
+
+async function get_games() {
+  var games = [];
+  db.collection("games").get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+        games.push(doc.data());
+    });
+
+    var anons = games.filter(item => item.vkid == null);
+    var vk_users = games.filter(item => item.vkid != null);
+    vk_users = vk_users.reduce((storage, item) => {
+      storage[item.vkid] ? storage[item.vkid].push(item) : (storage[item.vkid] = [item,]);
+      return storage;
+    }, {})
+    vk_users = Object.values(vk_users).map(item => item.sort((a, b) => a.score > b.score ? -1 : 1)[0])
+    console.log(vk_users)
+
+    var all_users = [...vk_users, ...anons].sort((a, b) => a.score > b.score ? -1 : 1);
+    console.log(all_users)
+  });
+}
