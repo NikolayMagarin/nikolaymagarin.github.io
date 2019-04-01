@@ -216,6 +216,14 @@ body {
     }
 }
 
+.buttons-wrapper {
+    flex-direction: column;
+    max-width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
 .vk-share-btn-wrapper {
     display: flex;
     align-items: center;
@@ -245,3 +253,34 @@ body {
     cursor: pointer;
 }
 
+.login-vk-button.hide {
+    display: none;
+}
+
+.profile-info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    right: 60px;
+
+}
+.profile-avatar {
+    height: 50px;
+    width: 50px;
+    margin-right: 15px;
+    border-radius: 50%;
+}
+.profile-name {
+    color: white;
+    font-size: 1.2rem;
+}
+.profile-logout {
+    color: white;
+    font-size: 0.8rem;
+    margin-top: 5px;
+    cursor: pointer;
+}
+.profile-logout.hide {
+    display: none;
+}

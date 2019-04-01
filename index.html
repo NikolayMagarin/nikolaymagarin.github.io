@@ -14,22 +14,45 @@
     <link rel="stylesheet" href="/static/css/modal.css?v=1"/>
     <link rel="stylesheet" href="/static/css/style.css?v=1"/>
     <script type="text/javascript" src="https://vk.com/js/api/share.js?93" charset="utf-8"></script>
+    <script src="https://vk.com/js/api/openapi.js?160" type="text/javascript"></script>
+    <script src="/static/js/vk_api.js" type="text/javascript"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-firestore.js"></script>
+    
 </head>
 <body>
+    <script type="text/javascript">
+      VK.init({
+        apiId: 6923277
+      });
+    </script>
     <section class="screen loading-screen">
         <!-- тут надпись загрузка -->
     </section>
     <section class="screen start-screen show">
+        <div class="profile-info">
+            <img src="/static/images/anonymous.png" alt="" class="profile-avatar"/>
+            <div>
+                <div class="profile-name">Аноним</div>
+                <div class="profile-logout" onclick="logout()">выйти</div>
+            </div>
+        </div>
         <h1 class="main-title">Арифметика</h1>
         <img src="/static/images/boy.png" alt="" class="boy">
         <div>
             <!-- <button class="start_button" onclick="init_game()"></button> -->
-            <div class="buttons-wrapper">
+            <div class="buttons-wrapper buttons-wrapper-column">
                 <button class="instruction_button" onclick="init_game()">
                     Играть
                 </button>
                 <button id="instructions-btn" class="instruction_button">
                     Инструкция
+                </button>
+                <button class="instruction_button">
+                    Список лидеров
+                </button>
+                <button class="instruction_button login-vk-button hide" onclick="VK.Auth.login(login_callback)">
+                    Войти через ВК
                 </button>
             </div>
         </div>
@@ -100,5 +123,9 @@
     <!-- <script type="text/javascript" src="static/ext/jquery.3.3.1.min.js"></script> -->
     <script type="text/javascript" src="static/js/script.new.js?v=1"></script>
     <script type="text/javascript" src="static/js/modal.js?v=1"></script>
+    <script type="text/javascript" src="/static/js/database.js"></script>
+    <script>
+        get_user_status()
+    </script>
 </body>
 </html>

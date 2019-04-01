@@ -8,7 +8,13 @@ var score = 0,
         answer: null,
         answers_list: [null, null, null, null],
     },
-    global_interval = null;
+    global_interval = null,
+    current_vk_user = {
+        first_name: 'Аноним',
+        last_name: '',
+        id: null,
+        avatar: '/static/images/anonymous.png',
+    };
 
 
 
@@ -162,6 +168,22 @@ function generate_vk_share_btn(score) {
     $('#vk_share_btn').html(VK.Share.button(share_options, button_options));
 }
 
+function show_current_user() {
+    var name = current_vk_user.first_name + " " + current_vk_user.last_name;
+    var avatar = current_vk_user.avatar;
+    $('.profile-avatar').attr('src', avatar);
+    $('.profile-name').text(name);
+
+    if (current_vk_user.id) {
+        $('.profile-logout').removeClass('hide');
+        $('.login-vk-button').addClass('hide');
+
+    } else {
+        $('.profile-logout').addClass('hide');
+        $('.login-vk-button').removeClass('hide');
+    }
+}
+
 /*******************/
 
 
@@ -209,9 +231,17 @@ function game_over() {
     $('.end-game-screen').addClass('show');
     $('.end-game-screen .score').text(score);
     generate_vk_share_btn(score);
+    add_game_into_db(
+        current_vk_user.first_name + " " + current_vk_user.last_name, 
+        current_vk_user.id, 
+        score,
+        current_vk_user.avatar
+    )
 }
 
 function back_to_main_menu() {
     $('.end-game-screen').removeClass('show');
     $('.start-screen').addClass('show');
 }
+
+
