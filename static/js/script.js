@@ -120,6 +120,7 @@ function check_answer() {
     } else {
         hp--;
     }
+    window.cancelAnimationFrame(global_interval)
     if (hp > 0) {
         start_task();
     } else {
@@ -210,14 +211,19 @@ function start_task() {
     show_score(score);
     show_hp(hp);
 
-    if (global_interval != null) {
-        clearInterval(global_interval);
-    }
+    var start = null;
 
-    global_interval = setInterval(function() {
-        timer -= 100;
+    function step(timestamp) {
+        if (!start) start = timestamp;
+        var progress = timestamp - start;
         show_timer(timer);
-        if (timer <= 0) {
+        if (timer > 0) {
+            show_timer(timer);
+            show_score(score);
+            timer = 5000 - progress
+            global_interval = window.requestAnimationFrame(step);
+        } else {
+            window.cancelAnimationFrame(global_interval) 
             hp--;
             if (hp <= 0) {
                 game_over();
@@ -225,7 +231,8 @@ function start_task() {
                 start_task();
             }
         }
-    }, 100)
+    }
+    global_interval = window.requestAnimationFrame(step);
 }
 
 
