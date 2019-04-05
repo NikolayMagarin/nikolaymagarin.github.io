@@ -199,10 +199,13 @@ body {
     justify-content: center;
 }
 
-.buttons-wrapper button {
+.buttons-wrapper button, 
+.buttons-wrapper a {
     margin: 10px;
     margin-top: 20px;
     display: inline-block;
+    text-align: center;
+    text-decoration: none;
 }
 
 @media (max-width: 500px) {
@@ -283,4 +286,42 @@ body {
 }
 .profile-logout.hide {
     display: none;
+}
+.rating-wrapper {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    margin-top: 80px;
+    text-align: center;
+    color: white;
+    max-height: calc(100vh - 200px);
+    max-width: 550px;
+    overflow: auto;
+}
+.rating-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.rating-profile-info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+}
+
+.rating-score {
+    font-size: 28px;
+}
+.header {
+    display: flex;
+    align-items: center;
+}
+.go-back {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+
 }

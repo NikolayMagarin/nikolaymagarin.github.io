@@ -34,9 +34,10 @@ async function get_games() {
       return storage;
     }, {})
     vk_users = Object.values(vk_users).map(item => item.sort((a, b) => a.score > b.score ? -1 : 1)[0])
-    console.log(vk_users)
 
     var all_users = [...vk_users, ...anons].sort((a, b) => a.score > b.score ? -1 : 1);
-    console.log(all_users)
+    all_users.forEach(user => {
+       render_rating_item(user.name, user.avatar, user.score);
+    })
   });
 }

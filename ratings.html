@@ -1,10 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Document</title>
+    <meta charset="utf-8"/>
+    <meta name='viewport' content='width=device-width,
+    initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no'/>
+    <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
+    <meta property="og:title" content='Игра "Арифметика"' />
+    <meta property="og:image" content="https://nikolaymagarin.github.io/static/images/boy-og.jpg"/>
+    <meta name="author" content="Николай Магарин">
+    <meta name="description" content="Тебе предстоит решать примеры на время, чем больше успеешь решить, тем ты круче!">
+    <title>Рейтинг игроков - Игра "Арифметика"</title>
+    <link rel="stylesheet" href="/static/css/common.css?v=1"/>
+    <link rel="stylesheet" href="/static/css/modal.css?v=1"/>
+    <link rel="stylesheet" href="/static/css/style.css?v=1"/>
+    <script type="text/javascript" src="https://vk.com/js/api/share.js?93" charset="utf-8"></script>
+    <script src="https://vk.com/js/api/openapi.js?160" type="text/javascript"></script>
+    <script src="/static/js/vk_api.js" type="text/javascript"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-firestore.js"></script>
+    
 </head>
 <body>
-    
+    <script type="text/javascript">
+      VK.init({
+        apiId: 6923277
+      });
+    </script>
+    <script type="text/javascript" src="static/ext/jquery.3.3.1.js"></script>
+    <script type="text/javascript" src="static/js/script.js?v=1"></script>
+    <script type="text/javascript" src="/static/js/database.js"></script>
+    <script>
+        get_user_status()
+        get_games()
+    </script>
+    <div class="header">
+        <a href="/" class="go-back">
+            На главную
+        </a>
+        <div class="profile-info">
+            <img src="/static/images/anonymous.png" alt="" class="profile-avatar"/>
+            <div>
+                <div class="profile-name">Аноним</div>
+                <div class="profile-logout" onclick="logout()">выйти</div>
+            </div>
+        </div>
+    </div>
+    <div class="rating-wrapper">
+        <h1>Рейтинг игроков</h1>
+        <div class="rating-list">
+        </div>
+    </div>
 </body>
 </html>
