@@ -27,7 +27,7 @@ async function get_games() {
         games.push(doc.data());
     });
 
-    var anons = games.filter(item => item.vkid == null);
+    var anons = games.filter(item => item.vkid == null).filter(item => item.score > 0);
     var vk_users = games.filter(item => item.vkid != null);
     vk_users = vk_users.reduce((storage, item) => {
       storage[item.vkid] ? storage[item.vkid].push(item) : (storage[item.vkid] = [item,]);
