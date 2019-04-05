@@ -215,7 +215,7 @@ function start_task() {
     }
 
     global_interval = setInterval(function() {
-        timer -= 10;
+        timer -= 100;
         show_timer(timer);
         if (timer <= 0) {
             hp--;
@@ -225,7 +225,7 @@ function start_task() {
                 start_task();
             }
         }
-    }, 10)
+    }, 100)
 }
 
 
