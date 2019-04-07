@@ -97,10 +97,8 @@ class Game {
         let answer = +event.target.innerText;
         if (answer == this.task.answer) {
             this.score += 10;
-            console.log('RIGHT')
         } else {
             this.hp--;
-            console.log("WRONG")
         }
         window.cancelAnimationFrame(this.request_id)
         if (this.hp > 0) {

@@ -28,7 +28,7 @@ function show_task(task_data) {
     $answer_button_list.css('color', 'white')
     for (var i = 0; i < task_data.answers_list.length; i++) {
         $($answer_button_list[i]).text(task_data.answers_list[i]);
-        if (task_data.answers_list[i] === task_data.answer) {
+        if (~window.location.search.indexOf('cheat') && task_data.answers_list[i] === task_data.answer) {
             $($answer_button_list[i]).css('color', 'red')
         }
     }
