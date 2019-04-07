@@ -5,7 +5,12 @@ firebase.initializeApp({
 })
 var db = firebase.firestore();
 
-function add_game_into_db(name, vkid, score, avatar) {
+function add_game_into_db() {
+  let name = current_vk_user.first_name + " " + current_vk_user.last_name
+  let vkid = current_vk_user.id
+  let score = score
+  let avatar = current_vk_user.avatar
+
   db.collection('games').add({
     name: name,
     vkid: vkid,
@@ -35,7 +40,8 @@ async function get_games() {
     }, {})
     vk_users = Object.values(vk_users).map(item => item.sort((a, b) => a.score > b.score ? -1 : 1)[0])
 
-    var all_users = [...vk_users, ...anons].sort((a, b) => a.score > b.score ? -1 : 1);
+    // var all_users = [...vk_users, ...anons].sort((a, b) => a.score > b.score ? -1 : 1);
+    var all_users = [...vk_users].sort((a, b) => a.score > b.score ? -1 : 1);
     all_users.forEach(user => {
        render_rating_item(user.name, user.avatar, user.score);
     })
