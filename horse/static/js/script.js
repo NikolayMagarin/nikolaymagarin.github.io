@@ -6,6 +6,7 @@ let possible_crosses = [...new Array(SIZE*SIZE)].map((item, index) => index)
 let autoplay_interval;
 
 let clicked_on_the_horse = 0;
+let autoplaying = false;
 
 
 for (let i = 1; i <= SIZE*SIZE; i++) {
@@ -38,8 +39,9 @@ function move() {
     else {
         if ($block.hasClass('horse')) {
             clicked_on_the_horse++;
-            if (clicked_on_the_horse >= 5) {
+            if (!autoplaying && clicked_on_the_horse >= 5) {
                 autoplay()
+                clicked_on_the_horse = 0;
             }
         } else {
             clicked_on_the_horse = 0;
@@ -118,6 +120,7 @@ function game_over(reason) {
     reason = reason || ''
     if (autoplay_interval) {
         clearInterval(autoplay_interval)
+        autoplaying = false
     }
     $("#gameOverModal .modal-body").text(reason + " Would you like to play again?");
     $("#gameOverModal").modal('show');
@@ -138,6 +141,7 @@ function play_again() {
 }
 
 function autoplay() {
+    autoplaying = true;
     autoplay_interval = setInterval(function() {
         if ($(".block_silver").length) {
             let index = Math.floor(Math.random() * $(".block_silver").length);
