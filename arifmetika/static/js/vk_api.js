@@ -51,7 +51,7 @@ function logout() {
         first_name: 'Аноним',
         last_name: '',
         id: null,
-        avatar: '/static/images/anonymous.png',
+        avatar: 'static/images/anonymous.png',
     };
     VK.Auth.logout();
     show_current_user()

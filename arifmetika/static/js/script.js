@@ -13,7 +13,7 @@ var score = 0,
         first_name: 'Аноним',
         last_name: '',
         id: null,
-        avatar: '/static/images/anonymous.png',
+        avatar: 'static/images/anonymous.png',
     };
 
 
