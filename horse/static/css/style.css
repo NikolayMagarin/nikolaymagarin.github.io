@@ -1,63 +1,63 @@
 
 body {
-	margin: 0;
+    margin: 0;
     padding: 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 #css-image-preloader {
-	background-image: url(../images/Crossed_horse.png), url(../images/Cross.png), url(../images/Horse.png);
-	position: absolute;
-	left: -99999px;
-	top: -99999px;
-	opacity: 0;
+    background-image: url(../images/Crossed_horse.png), url(../images/Cross.png), url(../images/Horse.png);
+    position: absolute;
+    left: -99999px;
+    top: -99999px;
+    opacity: 0;
 }
 
 
 .custom-container {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
-	min-height: 100vh;
+    min-height: 100vh;
 }
 #back {
-	max-height: 420px;
-	max-width: 420px;
-	width: 100%;
-	background-color: gray;
-	border: 2px solid black;
-	display: flex;
-	flex-wrap: wrap;
+    max-height: 420px;
+    max-width: 420px;
+    width: calc(100% - 30px);
+    background-color: gray;
+    border: 2px solid black;
+    display: flex;
+    flex-wrap: wrap;
     box-sizing: content-box;
 }
 .block_gray {
-	width: calc(10% - 2px);
-	border-radius: 2px;
-	border: 1px solid black;
-	box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    width: calc(10% - 2px);
+    border-radius: 2px;
+    border: 1px solid black;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
     box-sizing: content-box;
 }
 .block_gray:after {
-	content: "";
-	display: block;
-	padding-bottom: 100%;
-}	
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}   
 .block_silver {
-	background: silver;
-	box-shadow: none;
+    background: silver;
+    box-shadow: none;
 }
 .horse {
-	background-image: url("../images/Horse.png");
-	background-size: cover;
+    background-image: url("../images/Horse.png");
+    background-size: cover;
 }
 .cross {
-	background-image: url("../images/Cross.png");
-	background-size: cover;
+    background-image: url("../images/Cross.png");
+    background-size: cover;
 }
 .horse.cross {
-	background-image: url("../images/Crossed_horse.png");
-	background-size: cover;
+    background-image: url("../images/Crossed_horse.png");
+    background-size: cover;
 }
 
 .alert-wrapper {
@@ -69,7 +69,7 @@ body {
 }
 
 .alert-container {
-	margin: 10px auto;
-	width: 500px;
-	max-width: 90%;
+    margin: 10px auto;
+    width: 500px;
+    max-width: 90%;
 }
