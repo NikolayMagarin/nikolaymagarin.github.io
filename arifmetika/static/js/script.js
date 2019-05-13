@@ -196,7 +196,7 @@ function render_rating_item(name, avatar, score) {
     '</div>';
 
     template = template.replace('${name}', name);
-    template = template.replace('${avatar}', avatar);
+    template = template.replace('${avatar}', ~avatar.indexOf('anonymous.png') ? avatar.slice(1) : avatar);
     template = template.replace('${score}', score);
     $('.rating-list').append($(template));
 }
