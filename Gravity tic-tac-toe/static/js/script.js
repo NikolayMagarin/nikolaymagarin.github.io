@@ -1,4 +1,4 @@
-		let size = prompt("Set the field size.", 6) || 6, last_size,
+		let size = Math.abs(prompt("Set the field size.", 6)) || 6, last_size,
 			canvas = document.getElementById('canvas'),
 			c = canvas.getContext("2d"),
 			gravitation = 1, //0.1 - 10

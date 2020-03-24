@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chomp!</title>
+	<link rel="stylesheet" type="text/css" href="static/style.css">
+</head>
+<body>
+	<h1>Chomp!</h1>
+	<div class="game-field"></div>
+	<div class="edit-field">
+		<p>Size</p>
+		<button type="button" onclick="this.nextElementSibling.stepDown()">-</button>
+		<input  type="number" min="1" max="15" value="4" readonly class="size-input" name="c" id="c">
+		<button type="button" onclick="this.previousElementSibling.stepUp()">+</button>
+		<button type="button" onclick="this.nextElementSibling.stepDown()">-</button>
+		<input type="number" min="1" max="15" value="5" readonly class="size-input" name="r" id="r">
+		<button type="button" onclick="this.previousElementSibling.stepUp()">+</button>
+		<div class="newgame-button">New Game</div>
+	</div>
+	<script type="text/javascript" src="static/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+.game-field {
+	margin: auto;
+	max-width: 500px;
+	max-height: auto;
+	background: SaddleBrown;
+	border-radius: 7px;
+	display: flex;
+	flex-wrap: wrap;
+}
+.block {
+	background-color: transparent;
+	border-right: 8px solid #8B4011;
+	border-bottom: 8px solid #8B4011;
+	border-top: 8px solid #A0522D;
+	border-left: 8px solid #A0522D;
+	margin: 2px;
+	box-shadow: 0 0 10px rgba(220, 220, 220, 0.2);
+	transition: 1s;
+}
+.block_after {
+	background-color: white;
+	opacity: 0;
+	transition: 1s;
+}
+.poisoned-block {
+	background: rgb(124,252,0);
+	background-image: url(Poison.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	background-blend-mode: normal;
+	
+}
+.poisoned-block:active {
+	background-size: 0 0;
+}
+.poisoned-block:active {
+	background-size: 250%;
+	background-blend-mode: hard-light;
+	transition: 1s;
+}
+.edit-field {
+	margin: 40px auto;
+	max-width: 500px;
+	text-align: center;
+	box-shadow: 0 0 5px rgba(20, 0, 0, 1);
+	font: 15pt Arial Black;
+	color: #8B4011;
+	text-shadow: 0 0 10px rgba(0, 0, 90, 0.6);
+}
+.size-input {
+	all: unset;
+	-moz-appearance: textfield;
+	width: 3em;
+	align-items: center;
+}
+.size-input::-webkit-inner-spin-button { 
+	display: none;
+}
+.newgame-button {
+	margin-top: 25px;
+	font-size: 19pt;
+	transition: 0.5s;
+}
+.newgame-button:active {
+	font-size: 17pt;
+	transition: 0.2s;
+}
+button {
+	height: 30px;
+	width: 30px;
+	outline: none;
+	border-radius: 5px;
+	background-color: SaddleBrown;
+	border-right: 3px solid #8B4011;
+	border-bottom: 3px solid #8B4011;
+	border-top: 3px solid #A0522D;
+	border-left: 3px solid #A0522D;
+	box-shadow: 0 0 10px rgba(0, 0, 90, 0.6);
+}
+button:active {
+	height: 28px;
+	width: 28px;
+}
+h1 {
+	font: 25pt Arial Black;
+	color: #8B4011;
+	text-shadow: 0 0 10px rgba(0, 0, 100, 0.6);
+	text-align: center;
+}
