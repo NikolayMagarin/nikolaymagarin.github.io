@@ -41,23 +41,32 @@ function draw_ball(x, y, r, dx, dy, vx, vy, clear) {
 	}
 }
 
-canvas.onmousedown = function(e) {
-	startLineX = e.offsetX;
-	startLineY = e.offsetY;
+function getCoords(event) {
+  return {
+	x: event.changedTouches ? event.changedTouches[0].pageX : event.offsetX,
+	y: event.changedTouches ? event.changedTouches[0].pageY : event.offsetY,
+  }
+}
+
+canvas.onmousedown = canvas.ontouchstart = function(e) {
+	const coords = getCoords(e);
+	startLineX = coords.x;
+	startLineY = coords.y;
 	pressed = true;
 }
 
-canvas.onmouseup = function() {
+canvas.onmouseup = canvas.ontouchend = function() {
 	pressed = false;
 	if(permission){throw_ball()}
 }
 
-canvas.onmousemove = function(event) {
+canvas.onmousemove = canvas.ontouchmove = function(event) {
 	if(pressed && permission) {
+		const coords = getCoords(event);
 		c.clearRect(0,0,canv_w,canv_h);
 		draw_ball(NowX, NowY, R, 0, 0, 0, 0, 0);
-		LineX = (event.offsetX-startLineX+NowX);
-		LineY = (event.offsetY-startLineY+NowY);
+		LineX = (coords.x-startLineX+NowX);
+		LineY = (coords.y-startLineY+NowY);
 		draw_arrow(NowX, NowY, LineX, LineY);
 	}
 }
