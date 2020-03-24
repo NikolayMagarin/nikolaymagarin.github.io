@@ -49,18 +49,21 @@ function getCoords(event) {
 }
 
 canvas.onmousedown = canvas.ontouchstart = function(e) {
+	e.preventDefault();
 	const coords = getCoords(e);
 	startLineX = coords.x;
 	startLineY = coords.y;
 	pressed = true;
 }
 
-canvas.onmouseup = canvas.ontouchend = function() {
+canvas.onmouseup = canvas.ontouchend = function(e) {
+	e.preventDefault();
 	pressed = false;
 	if(permission){throw_ball()}
 }
 
 canvas.onmousemove = canvas.ontouchmove = function(event) {
+	event.preventDefault();
 	if(pressed && permission) {
 		const coords = getCoords(event);
 		c.clearRect(0,0,canv_w,canv_h);
