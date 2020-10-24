@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		body {
+			background-color: lightgray;
+		}
+		#canvas {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			margin: auto;
+			background-color: black;
+			max-height: 100%;
+			max-width: 100%;
+			cursor: crosshair;
+		}
+		#mute {
+			position: absolute;
+			top: calc(50% + 360px);
+			right: 0;
+			bottom: 0;
+			left: calc(50% - 400px);
+			max-height: 40px;
+			max-width: 40px;
+			cursor: pointer;
+			background-image: url(Images/mute.png);
+			background-size: 100%;
+			background-color: transparent;
+			background-repeat: no-repeat;
+			opacity: 0.5;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+	<script type="text/javascript" src="script.js"></script>
+	<div id="mute" onclick="{MUTE=!MUTE; jet_SOUND.pause(); this.style.opacity=this.style.opacity==1?0.5:1}"></div>
+</body>
+</html>
