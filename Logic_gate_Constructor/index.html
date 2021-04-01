@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Logic gate constructor</title>
+	<style type="text/css">
+
+		body {
+			overflow: hidden;
+			position: absolute;
+			margin: 0px;
+			background-color: #ffffff;
+			outline: 2px solid rgba(60, 110, 113, 0.25);
+			outline-offset: -10px;
+			width: 100%;
+			height: 100%;
+			box-shadow: 0px 0px 15px 1px rgba(60, 110, 113, 0.5) inset;
+			user-select: none;
+			background: transparent;
+
+		}
+
+		.center {
+			position: absolute;
+			right: 0px;
+			left: 0px;
+			bottom: 0px;
+			height: 50px;
+			box-shadow: 0px 0px 15px 1px rgba(60, 110, 113, 0.5);
+
+			margin: 10px;
+			overflow-x: hidden;
+			overflow-y: hidden;
+			white-space: nowrap;
+			padding-left: 30px;
+			padding-right: 30px;
+			user-select: none;
+		}
+
+		#content {
+			overflow: hidden;
+			scroll-behavior: smooth;
+			user-select: none;
+		}
+
+		.internal {
+			display: inline-block;
+			vertical-align: middle;
+			width: 200px;
+			outline: 1px solid rgba(60, 110, 113, 0.5);
+			outline-offset: -5px;
+			text-align: center;
+			transition: 0.25s;
+			z-index: 5;
+			user-select: none;
+		}
+
+		.internal:hover,
+		.internal:focus {
+			box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+			transform: translateY(-0.2em);
+			background-color: lightgray;
+		}
+
+		.next {
+			position: fixed;
+			right: 10px;
+		}
+
+		.prev {
+			position: fixed;
+			left: 10px;
+		}
+
+		.horizon {
+			bottom: 12px;
+			height: 46px;
+			width: 30px;
+			border-radius: 0px;
+			border: 1px solid rgba(60, 110, 113, 0.5);
+			background-color: #d9d9d9;
+			transition: 0.2s;
+			z-index: 10;
+		}
+
+		.horizon:hover {
+			background-color: #8d99ae;
+			color: white;
+		}
+
+		.BlockOnField {
+			min-width: 60px;
+			min-height: 60px;
+			height: auto;
+			border: 1px solid black;
+			vertical-align: middle;
+			text-align: center;
+			display: block;
+			user-select: none;
+		}
+
+		.BlockOnField:hover {
+			box-shadow: 0px 0px 15px 1px #272640;
+		}
+
+		.pin {
+			position: relative;
+			background-color: black;
+			border-radius: 50%;
+			margin: 5px;
+			width: 15px;
+			height: 15px;
+			transition: 0.2s;
+		}
+
+		.pin:hover {
+			background-color: white;
+		}
+
+		.deleter {
+			background-image: url(Cross.png);
+			background-size: 100%;
+			width: 80px;
+			height: 80px;
+			box-shadow: 0px 0px 15px 10px rgba(255, 0, 0, 0.75);
+			border-radius: 10px;
+			opacity: 75%;
+			margin-left: calc(100% - 100px);
+			margin-top: 20px;
+		}
+		
+		.linesCanvas {
+			z-index: -1;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+		}
+
+		.bigPin {
+			position: absolute;
+			background-color: grey;
+			border-radius: 50%;
+			width: 40px;
+			height: 40px;
+			box-shadow: 0px 0px 12px 1px rgba(60, 110, 113, 1);
+		}
+
+		.strongbacklight:hover {
+			background-color: #5e6472;
+			color: white;
+		}
+
+		#darkLayer {
+			position: absolute;
+			top: 0px;
+			bottom: 0px;
+			left: 0px;
+			right: 0px;
+			z-index: 15;
+			width: 100%;
+			height: 100%;
+			background: #000;
+			opacity: 0;
+		}
+
+		.modal {
+			display: none;
+			justify-content: center;
+			position: fixed;
+			z-index: 1;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: rgb(0,0,0);
+			background-color: rgba(0,0,0,0.4);
+		}
+			
+		.modal-content {
+			position: absolute;
+			top: 0;
+			background-color: #fefefe;
+			margin: 10% auto;
+			padding: 20px;
+			border: 1px solid #888;
+			width: 80%;
+			max-width: 400px;
+			font-size: 18px;
+		}
+		
+		.instruction-line {
+			margin-bottom: -10px;
+		}
+
+		.keyboard-shortcuts {
+			color: grey;
+		}
+
+		.close {
+			color: #aaa;
+			float: right;
+			font-size: 28px;
+			font-weight: bold;
+		}
+			
+		.close:hover,
+		.close:focus {
+			color: black;
+			text-decoration: none;
+			cursor: pointer;
+		}
+	</style>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+<body>
+	<div class="center" id="content">
+		<div class="internal strongbacklight" id="information">
+			<p>Helpful information</p>
+		</div>
+		<div class="internal strongbacklight" id="LOAD">
+			<p>Load Logic Gates Pack</p>
+		</div>
+		<div class="internal strongbacklight" id="SAVE">
+			<p>Save This Logic Gates Pack</p>
+		</div>
+		<div class="internal strongbacklight" id="CUSTOM">
+			<p>Create Custom Logic Gate</p>
+		</div>
+		<div class="internal" id="POWER">
+			<p>POWER</p>
+		</div>
+		<div class="internal" id="OUTPUT">
+			<p>OUTPUT</p>
+		</div>
+		<div class="internal" id="AND">
+			<p>AND</p>
+		</div>
+		<div class="internal" id="NOT">
+			<p>NOT</p>
+		</div>
+		<div class="horizon prev"></div>
+		<div class="horizon next"></div>
+	</div>
+
+	<div class = "deleter"></div>
+
+	<canvas class = "linesCanvas"></canvas>
+
+	<div id="darkLayer"></div>
+
+	<div id="instructions-modal" class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h3>How to use it</h3>
+				<p class="instruction-line">You can see several buttons on the main panel at the bottom of the screen.</p>
+				<p class="instruction-line"><u>Helpful information</u> opens this window.</p>
+				<p class="instruction-line"><u>Create Custom Logic Gate</u> - creating a logic gate from a logic circuit you created</p>
+				<p class="instruction-line"><u>POWER</u> and <u>OUTPUT</u> Create inputs and outputs (try to drag them) for your logic circuit.</p>
+				<p class="instruction-line"><u>AND</u>, <u>NOT</u> and others сreate logic gates (try to drag them).</p>
+				<p class="instruction-line keyboard-shortcuts">Shift+Leftclick on grey inputs - start to lead a wire path,</p>
+				<p class="instruction-line keyboard-shortcuts">Leftclick on black outputs - start to lead a wire path,</p>
+				<p class="instruction-line keyboard-shortcuts">Alt+Leftclick on inputs - turn it on/off,</p>
+				<p class="instruction-line keyboard-shortcuts">Ctrl+double Leftclick on any of the black and gray inputs or outputs - remove all wires connected to it,</p>
+				<p class="instruction-line keyboard-shortcuts">Single cliсk on red cross - remove selected item,</p>
+				<p class="instruction-line keyboard-shortcuts">Ctrl+double Leftclick on red cross - clear the field.</p>
+			</div>
+		</div>
+
+	<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
